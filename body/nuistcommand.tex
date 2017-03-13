@@ -1,0 +1,97 @@
+\section{NUIST模板介绍}
+
+\subsection{适合人群}
+符合下面任何两三条都可以使用此模板：
+\begin{itemize}
+\item 南信大理工科专业的本科毕业生；
+\item 有一定\LaTeX 使用基础；
+\item 没有基础但现在开始想学习使用\LaTeX 排版的朋友；
+\item 受够了Word的排版方式；
+\item 想排版出专业、规范的论文；
+\end{itemize}
+\subsection{中文处理问题}
+
+\subsubsection{中文解决方案}
+由于现在XeLaTeX 排版引擎已经比较成熟，所以这里摒弃陈旧的CJK中文字体解决方案，采用XeLaTeX + ctex解决中英文混排问题。
+\subsubsection{中文字体来源}
+模板中共用到楷体、宋体、黑体这三种字体，这三种字体全部使用ctex中文套件中提供的中文字体。
+\subsection{文档类的选取}
+
+模版的文档类是基于ctex宏包中自带的ctexart类来实现的，当然，还用到了一些常用的宏包，编译时要保证自己的系统中已经安装好了这些宏包，本模板所用的宏包具体可参见表~\ref{table_1}~。
+
+\subsection{参考文献编译方式}
+
+由于是本科论文，估计参考文献数一般也不会轻易上50篇，所以这里就用最原始的thebibliography环境中的\verb|\bibitem|来处理参考文献。
+
+\subsection{\LaTeX 排版系统的获取}
+
+\LaTeX/\TeX 排版系统是跨平台的自由排版系统，各个平台均有免费的安装包发行。Windows下一般可安装CTEX中文套装，或者TeX Live套装。其它电脑平台可自行摸索。
+
+\section{模板中定义命令的使用方法}
+\subsection{NUIST模板中新定义命令介绍}
+这里一一介绍下NUIST本科论文模板中的新定义的命令：
+{\color{blue}
+\begin{enumerate}
+\item \verb|\cover|，用于生成论文封面内容；
+\item \verb|\mytableofcontents|，用于生成目录页内容；
+\item \verb|\maketitleofchinese|，用于生成中文标题、姓名及单位信息
+\item \verb|\maketitleofenglish|，用于生成英文文标题、姓名及单位信息
+\item \verb|\abstractofchinses|，用于生成中文摘要；
+\item \verb|\abstractofenglish|，用于生成英文摘要；
+\item \verb|\thanking|，用于生成致谢部分的标题；
+\end{enumerate}
+}
+
+
+\subsection{命令用法详解}
+\LaTeX/\TeX 中的命令都是以$\backslash$（下划线）开始的。命令又分为两种，一种是无参数命令，起声明和执行特定任务作用；另一种 是有参数命令。带参命令的参数又有两种类型一种是可选参数（用[ ]来框住，可省略该项参数），另一种是必选参数（用\{ \}来框住）。
+
+本模板中自定义的命令有只有两个是不带参的命令，即\verb|\thanking|和\verb|\mytableofcontents|，其余都是带参命令。其中最多的参数个数为6个，最少为2个。
+\subsubsection{带参命令用法}
+\verb|\cover|\{val1\}\{val2\}\{val3\}\{val4\}\{val5\}\{val6\}\{val7\}这里val1-val6分别表示填入的信息依次为：val1 =论文题目，val2 =姓名，val3 =学号，val4 =学院，val5 =专业，val6 =导师，val7 =年月日。例如如下代码，就生成了本说明文档的封面。
+
+
+
+{\color{green!50!black}
+\begin{verbatim}
+\cover
+{南京信息工程大学本科生毕业论文\LaTeX 模板 \\Version $1.(e^{i\pi}+1)$}
+{路人甲}
+{20101301888}
+{大气科学学院}
+{大气科学}
+{路人乙~教授}
+{二Ｏ一四~年~五~月~二~日}
+\end{verbatim}
+}
+那接下来看看剩下的几个命令的参数数量及参数所对应的内容是什么：
+{\color{blue}
+\begin{itemize}
+\item \verb|\mytableofcontents|，无参数命令
+\item \verb|\maketitleofchinese|\{论文标题\}\{姓名\}\{学院\}
+\item \verb|\maketitleofenglish|\{英文标题\}\{英文姓名或拼音\}，英文标题中没学院信息
+\item \verb|\abstractofchinses|\{中文摘要内容\}\{中文关键词\}
+\item \verb|\abstractofenglish|\{英文摘要内容\}\{中文关键词\}
+\item \verb|\thanking|，无参数命令
+\end{itemize}
+}
+下面再来举个例子，如下面的这些命令，就可以分别产生本文档前面的中文标题、摘要和英文标题、摘要。
+{\color{green!50!black}
+\begin{verbatim}
+\maketitleofchinese{南京信息工程大学本科生毕业论文\LaTeX 模板V1.0}{路人甲}{大气科学}
+\abstractofchinese
+{这是一份南京信息工程大学本科生毕业论文\LaTeX 模板。友善提醒：本文档是非官方版，属个人兴趣产物。}
+{模板；南信大；毕业论文；}
+
+\maketitleofenglish{\LaTeX\ Template for Undergraduate 
+Thesis of Nanjing University of Information Science and Technology
+}
+{Some Guy}
+
+\abstractofenglish{This is a \LaTeX{~}template for the Undergraduate thesis 
+of Nanjing University of Information Science and Technology. Caution: due 
+to personal interest, not an official template.}{template；NUIST；thesis;}
+\end{verbatim}
+}
+\subsubsection{不带参命令用法}
+本文不带参的命令共有两个分别为：\verb|\thanking|和\verb|\mytableofcontents|，分别用来生成目录和致谢部分标题。不带参命令使用起来相对比较简单，只需原封不动的打出相应命令，编译就会自动执行相应的排版操作，如用\verb|\mytableofcontents|就可以在出现些条命令的位置生成完整的目录，形成目录页。

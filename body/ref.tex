@@ -1,0 +1,16 @@
+\section{排版参考文献及引用}
+本模板采用thebibliography环境来排版参考文献，对如下代码进行编译即可得到本文后面的参考文献摆放形式。
+{\color{green!50!black}
+\begin{verbatim}
+\begin{thebibliography}{99}\setlength{\itemsep}{-0.1mm}
+\begin{spacing}{1.2}
+\zihao{-5}
+\bibitem{x1}The Not So Short Introduction to 
+\LaTeX2e \ by Tobias Oetiker, Hubert Partl, Irene Hyna and Elisabeth Schlegl.
+\bibitem{x0}李平．\LaTeX2e 及常用宏包使用指南[M]．清华大学出版社，2004．
+\bibitem{x3}罗振东，葛向阳．排版软件\LaTeX 简明手册[M]．第二版．北京：电子工业出版社，2003．
+\end{spacing}
+\end{thebibliography}
+\end{verbatim}
+}
+引用文献条目时使用\verb|\ucite{}|命令，例如代码\verb|\ucite{x1}|和\verb|\ucite{x2}|就可以产生\ucite{x1}和\ucite{x2}上标。
