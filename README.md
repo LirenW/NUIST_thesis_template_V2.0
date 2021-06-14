@@ -1,3 +1,5 @@
 # NUIST_thesis_template_V2.0
-## 如需转载请在Git上联系我或发邮件到 stuliren@outlook.com
-如果发现未经允许（原作者、修改者）的转载，作者保留追究进一步责任的权力。
+本模板由于长久未更新，使用时请参考最新修改的版本，这里列出一部分
+- https://github.com/sakronos/NUIST_Bachelor_Thesis_LaTeX_Template
+- https://github.com/nuisttudou/NUIST_thesis_template_change
+如有问题请提 Issues 或发邮件到 stuliren@outlook.com
